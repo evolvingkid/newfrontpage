@@ -5,8 +5,6 @@ import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 
 class MainScreenPages extends StatefulWidget {
-
-static int cartCount = 0;
   @override
   _MainScreenPagesState createState() => _MainScreenPagesState();
 }
@@ -52,6 +50,7 @@ Provider.of<RestApiCalss>(context, listen: false).itemDatas();
            body: _isLoading ? Center(child: CircularProgressIndicator()) :
            TabBarView(
              children: _bottomlistWdgets,
+             
            ),
          ),
     );
@@ -74,8 +73,10 @@ Provider.of<RestApiCalss>(context, listen: false).itemDatas();
             child: CircleAvatar(
                 radius: 10,
                 backgroundColor: Colors.redAccent,
-                child: Text(MainScreenPages.cartCount.toString()),),
-            )
+                child: Consumer<Cart>(
+                  builder: (_, cart, ch) =>
+                   Text(cart.cartCount.toString()),),
+            ))
           ],
         ),)
       ],
@@ -83,6 +84,7 @@ Provider.of<RestApiCalss>(context, listen: false).itemDatas();
          unselectedLabelColor: Colors.redAccent,
         isScrollable: true,
               tabs: _listWdgets,
+              labelColor: Colors.deepPurpleAccent,
             ),
     );
   }

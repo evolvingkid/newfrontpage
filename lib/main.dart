@@ -25,11 +25,11 @@ class _MyAppState extends State<MyApp> {
         ),
         ChangeNotifierProvider.value(
           value: Cart(),
-        ),
+        )
       ],
           child: MaterialApp(
         title: 'Exam Test',
-
+       
          home: MainScreenPages()
       ),
     );

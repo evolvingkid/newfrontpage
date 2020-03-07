@@ -39,10 +39,23 @@ class _ItemListViewsState extends State<ItemListViews> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        Container(
-                          width: screenWidhth * 0.6,
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(_dish[index]['dishname'],style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: Colors.black38),),
+                        
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.all(5),
+                              decoration: BoxDecoration(
+                                border: Border.all(),
+                              ),
+                          child: CircleAvatar(backgroundColor:_dish[index]['dishtype'] == '1' ? Colors.redAccent : Colors.greenAccent,
+                           radius: 5,),
+                        ),
+                            Container(
+                              width: screenWidhth * 0.6,
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(_dish[index]['dishname'],style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold, color: Colors.black38),),
+                            ),
+                          ],
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -82,7 +95,7 @@ class _ItemListViewsState extends State<ItemListViews> {
                         FlatButton(onPressed: (){
                           setState(() {
                             _dish[index]['indexCount'] ++;
-                            MainScreenPages.cartCount++;
+                            Provider.of<Cart>(context , listen: false).addCount();
                            
                           });
                           
@@ -92,7 +105,7 @@ class _ItemListViewsState extends State<ItemListViews> {
                            setState(() {
                              if(_dish[index]['indexCount'] != 0){
 _dish[index]['indexCount'] --;
-MainScreenPages.cartCount--;
+Provider.of<Cart>(context, listen: false).subCount();
                              }
                              
                           });

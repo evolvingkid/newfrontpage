@@ -58,6 +58,7 @@ return catergoryData;
         'dish_calories': '${fetchData[0][0]['table_menu_list'][i]['category_dishes'][j]['dish_calories']}',
         'dishDesc': '${fetchData[0][0]['table_menu_list'][i]['category_dishes'][j]['dish_description']}',
         'dishAvailibility': '${fetchData[0][0]['table_menu_list'][i]['category_dishes'][j]['dish_Availability']}',
+        'dishtype': '${fetchData[0][0]['table_menu_list'][i]['category_dishes'][j]['dish_Type']}',
       });
   }
   }
@@ -80,6 +81,7 @@ _filters.add({
      'dishDesc': '${dish[i]['dishDesc']}',
       'dishAvailibility': '${dish[i]['dishAvailibility']}',
       'indexCount' : 0,
+      'dishtype': '${dish[i]['dishtype']}'
     });
     }
     
