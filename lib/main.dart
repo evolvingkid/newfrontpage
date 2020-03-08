@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'provider/rest_api_calls.dart';
 import './screens/home_page.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
@@ -11,13 +12,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-    bool _isLoading =true;
-
- 
 
   @override
   Widget build(BuildContext context) {
-
     return MultiProvider(
       providers: [
         ChangeNotifierProvider.value(
@@ -27,15 +24,7 @@ class _MyAppState extends State<MyApp> {
           value: Cart(),
         )
       ],
-          child: MaterialApp(
-        title: 'Exam Test',
-       
-         home: MainScreenPages()
-      ),
+      child: MaterialApp(title: 'Exam Test', home: MainScreenPages()),
     );
   }
-   
 }
-
-
-

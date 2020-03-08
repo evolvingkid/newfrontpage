@@ -1,16 +1,15 @@
 import 'package:flutter/foundation.dart';
 
 class Cart with ChangeNotifier {
- int cartCount = 0;
+  int cartCount = 0;
 
-
-  addCount(){
+  addCount() {
     cartCount++;
     notifyListeners();
-
   }
-  subCount(){
+
+  subCount() {
     cartCount--;
-   notifyListeners();
+    notifyListeners();
   }
 }
